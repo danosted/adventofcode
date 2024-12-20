@@ -1,0 +1,15 @@
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\bin\Debug\net8.0\aoc2023.exe
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\bin\Debug\net8.0\aoc2023.deps.json
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\bin\Debug\net8.0\aoc2023.runtimeconfig.json
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\bin\Debug\net8.0\aoc2023.dll
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\bin\Debug\net8.0\aoc2023.pdb
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.AssemblyInfoInputs.cache
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.AssemblyInfo.cs
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.csproj.CoreCompileInputs.cache
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.dll
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\refint\aoc2023.dll
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.pdb
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\aoc2023.genruntimeconfig.cache
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\obj\Debug\net8.0\ref\aoc2023.dll
+c:\Users\danos\source\repos\adventofcode\2023\aoc2023\bin\Debug\net8.0\aoc2023.txt
