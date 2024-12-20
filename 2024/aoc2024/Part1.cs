@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-public class PartOneService
+public class Part_1_Service
 {
     private NumberDistanceService _numberService = Activator.CreateInstance<NumberDistanceService>();
     private RunnerService _runnerService = Activator.CreateInstance<RunnerService>();

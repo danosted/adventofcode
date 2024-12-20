@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-public class PartTwoService
+public class Part_2_Service
 {
     private SafeRowService _taskService = Activator.CreateInstance<SafeRowService>();
     private RunnerService _runnerService = Activator.CreateInstance<RunnerService>();
