@@ -23,7 +23,7 @@ public class PartOneService
         "3   3",
         ];
 
-        var inputLists = _istTest ? testStringList : FilerLoaderService.GetInputFile(AocTask.Part_1);
+        var inputLists = _istTest ? testStringList : FilerLoaderService.GetInputFile(AocTask.GetPart(1));
 
         var regexPairs = """\d+""";
         var inputMatchPairs = inputLists.Select(row => Regex.Matches(row, regexPairs));

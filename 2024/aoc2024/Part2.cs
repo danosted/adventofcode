@@ -22,7 +22,7 @@ public class PartTwoService
             "1 3 6 7 9",
         ];
 
-        var inputLists = testRun ? testStringList : FilerLoaderService.GetInputFile(AocTask.Part_2);
+        var inputLists = testRun ? testStringList : FilerLoaderService.GetInputFile(AocTask.GetPart(2));
 
         var regexPairs = """\d+""";
         var inputRowMatches = inputLists.Select(row => Regex.Matches(row, regexPairs).Select(p => int.Parse(p.Value)));
