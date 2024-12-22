@@ -9,7 +9,7 @@ public class RunnerService
         return this;
     }
 
-    public void RunWithLogging(string title, Func<int> methodDelegate)
+    public void RunWithLogging(string title, Func<object?> methodDelegate)
     {
         var watch = new Stopwatch();
         title = _isTest ? $"TESTRUN_{title}" : title;
