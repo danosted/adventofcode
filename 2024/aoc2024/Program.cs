@@ -4,7 +4,7 @@ var isTest = args.Count() == 2 && args[1] == "test";
 // #if DEBUG
 // Console.WriteLine("DEBUG");
 // isTest = true;
-// runNumber = "2";
+// runNumber = "4";
 // #endif
 if (runNumber == "1")
 {
@@ -21,5 +21,11 @@ if (runNumber == "2")
 if (runNumber == "3")
 {
     var service = Activator.CreateInstance<Part_3_Service>();
+    service.Run(isTest);
+}
+
+if (runNumber == "4")
+{
+    var service = Activator.CreateInstance<Part_4_Service>();
     service.Run(isTest);
 }
