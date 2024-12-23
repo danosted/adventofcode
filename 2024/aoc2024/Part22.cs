@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+
 public class Part_22_Service
 {
     private RunnerService _runnerService = Activator.CreateInstance<RunnerService>();
@@ -8,6 +10,7 @@ public class Part_22_Service
         _istTest = testRun;
 
         string[] testString = [
+            "123",
             "1",
             "10",
             "100",
@@ -22,10 +25,10 @@ public class Part_22_Service
             long sum = 0;
             foreach (var line in inputLists)
             {
-                var lineValue = long.Parse(line);
+                var originalSecretNumber = long.Parse(line);
                 var t = Task.Run(() =>
                 {
-                    var secretNumber = lineValue;
+                    var secretNumber = originalSecretNumber;
                     for (int i = 0; i < 2000; i++)
                     {
                         secretNumber = GenerateSecretNumber(secretNumber);
@@ -36,6 +39,58 @@ public class Part_22_Service
             }
             Task.WhenAll(tasks).Wait();
             return sum;
+        });
+
+        _runnerService.WithTest(_istTest).RunWithLogging(GetType().Name, () =>
+        {
+            var tasks = new List<Task>();
+            var priceChangeList = new ConcurrentDictionary<long, List<PriceChangePair>>();
+            var sequenceList = new ConcurrentDictionary<long, List<Sequence>>();
+            foreach (var line in inputLists)
+            {
+                var originalSecretNumber = long.Parse(line);
+                var t = Task.Run(() =>
+                {
+                    var priceChangeListLocal = new List<PriceChangePair>();
+                    var sequenceListLocal = new List<Sequence>();
+                    var secretNumber = originalSecretNumber;
+                    var priceChangePair = new PriceChangePair(GetPrice(originalSecretNumber), 0);
+                    var lastFourPriceChangePair = new PriceChangePair[4];
+                    for (int i = 0; i < 2000; i++)
+                    {
+                        secretNumber = GenerateSecretNumber(secretNumber);
+                        priceChangePair = GetPriceChangePair(secretNumber, priceChangePair);
+                        priceChangeListLocal.Add(priceChangePair);
+                        if (i < 3) continue;
+                        for (int i2 = 0; i2 < 4; i2++)
+                        {
+                            lastFourPriceChangePair[3 - i2] = priceChangeListLocal.ElementAt(i - i2);
+                        }
+                        sequenceListLocal.Add(new Sequence
+                        {
+                            OriginSecretNumber = originalSecretNumber,
+                            SequenceIndexStart = i,
+                            SequenceList = lastFourPriceChangePair
+                        });
+                    }
+                    var wasAdded = priceChangeList.TryAdd(originalSecretNumber, priceChangeListLocal);
+                    if (!wasAdded)
+                    {
+                        Console.WriteLine($"SecretNumber already in dictionary.  {originalSecretNumber}");
+                    }
+
+                    var wasAdded2 = sequenceList.TryAdd(originalSecretNumber, sequenceListLocal);
+                    if (!wasAdded)
+                    {
+                        Console.WriteLine($"SecretNumber already in dictionary.  {originalSecretNumber}");
+                    }
+
+                });
+                tasks.Add(t);
+            }
+            Task.WhenAll(tasks).Wait();
+
+            return 0;
         });
     }
 
@@ -65,4 +120,32 @@ public class Part_22_Service
         var modResult = secretNumber % 16777216;
         return modResult;
     }
+
+
+    #region Part 2 stuff
+    class Sequence
+    {
+        public required long OriginSecretNumber { get; init; } // originating secretnumber
+        public required int SequenceIndexStart { get; init; } // where in the number of secretnumber was this found
+        public required IEnumerable<PriceChangePair> SequenceList { get; init; } // sequence indexed [0,1,2,3] where 0 is the beginning of the sequence
+        public string Key => string.Join(",", SequenceList.Select(s => s.Change.ToString())); // string.join(",",each number in the sequence)
+        public List<int> ChangeSequence => SequenceList.Select(t => t.Change).ToList();
+        public int Price => SequenceList.Last().Price;
+
+    }
+    public record PriceChangePair(int Price, int Change);
+
+    public PriceChangePair GetPriceChangePair(long secretNumber, PriceChangePair previousChangePair)
+    {
+        var curPrice = GetPrice(secretNumber);
+        return new PriceChangePair(curPrice, curPrice - previousChangePair.Price);
+    }
+
+    public int GetPrice(long secretNumber)
+    {
+        return int.Parse(secretNumber.ToString().Last().ToString());
+    }
+
+
+    #endregion
 }
