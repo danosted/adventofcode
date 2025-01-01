@@ -3,8 +3,8 @@
 var isTest = args.Count() == 2 && args[1] == "test";
 // #if DEBUG
 // Console.WriteLine("DEBUG");
-isTest = true;
-runNumber = "22";
+// isTest = true;
+// runNumber = "22";
 // #endif
 if (runNumber == "1")
 {

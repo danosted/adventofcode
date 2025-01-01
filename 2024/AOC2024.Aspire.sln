@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.0.0
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AOC2024.Aspire.AppHost", "AOC2024.Aspire.AppHost\AOC2024.Aspire.AppHost.csproj", "{5FA98B6A-9F25-4F74-9BFB-0C4FC936B7F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AOC2024.Aspire.ServiceDefaults", "AOC2024.Aspire.ServiceDefaults\AOC2024.Aspire.ServiceDefaults.csproj", "{BF747182-A05E-43B8-9F08-C719892DC06A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FA98B6A-9F25-4F74-9BFB-0C4FC936B7F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA98B6A-9F25-4F74-9BFB-0C4FC936B7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA98B6A-9F25-4F74-9BFB-0C4FC936B7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA98B6A-9F25-4F74-9BFB-0C4FC936B7F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF747182-A05E-43B8-9F08-C719892DC06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF747182-A05E-43B8-9F08-C719892DC06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF747182-A05E-43B8-9F08-C719892DC06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF747182-A05E-43B8-9F08-C719892DC06A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {749EC103-920C-4596-BFEB-650EEB34FA1B}
+	EndGlobalSection
+EndGlobal
